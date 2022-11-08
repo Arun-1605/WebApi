@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NZwalks.API.Model.Domain;
+using NZwalks.API.Model.DTO;
 
 namespace NZwalks.API.Model.DBContext
 

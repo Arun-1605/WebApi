@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using NZwalks.API.Model.DBContext;
+using NZwalks.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,11 @@ builder.Services.AddDbContext<NZDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Myconnection"));
 
 });
+builder.Services.AddMvc();
+
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 
@@ -29,6 +36,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseRouting();
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Region}/{action=AddRegions}/{id?}"
+//    );
+
+
 
 app.Run();
