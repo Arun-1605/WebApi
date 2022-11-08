@@ -32,9 +32,9 @@ namespace NZwalks.API.Controllers
 
             regions.ToList().ForEach(obj =>
             {
-                var regionsDto = new Model.DTO.RegionDto()
+                var regionsDto = new RegionDto()
                 {
-                    Id = obj.Id,
+                    Code = obj.Code,
                     Name = obj.Name,
                     Area = obj.Area,
                     Lat = obj.Lat,
@@ -54,7 +54,7 @@ namespace NZwalks.API.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
-        [ActionName("GetRegionById")]
+        [ActionName("[GetRegionById]")]
         public async Task<IActionResult> GetRegionById(Guid id)
         {
             var region =  await _regionRepository.GetRegionsbyId(id);

@@ -28,11 +28,6 @@ namespace NZwalks.API.Repositories
         {
             var region = await _dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
 
-            if(region == null)
-            {
-                return null;
-            }
-
               _dbContext.Regions.Remove(region);
 
             await _dbContext.SaveChangesAsync();

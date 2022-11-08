@@ -38,10 +38,7 @@ app.UseAuthorization();
 
 app.UseRouting();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Region}/{action=AddRegions}/{id?}"
-//    );
+app.MapControllers();
 
 
 
