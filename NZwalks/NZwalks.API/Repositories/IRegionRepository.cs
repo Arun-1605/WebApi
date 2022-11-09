@@ -12,5 +12,7 @@ namespace NZwalks.API.Repositories
         Task<Regions> AddRegion(Regions regions);
 
         Task<Regions> DeleteRegion(Guid id);
+
+        Task<Regions> UpdateRegion(Guid id, Regions region);
     }
 }
